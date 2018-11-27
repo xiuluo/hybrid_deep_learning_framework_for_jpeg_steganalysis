@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #The program generate the lmdb dataset for the Caffe input
-#Implement in python-2.7
+#Implement in python-3.6
 
 import caffe
 import lmdb
@@ -58,7 +58,8 @@ for x in range(500000):
     # save in datum
     datum = caffe.io.array_to_datum(data, label)
     keystr = '{:0>8d}'.format(item_id)
-    lmdb_txn.put( keystr, datum.SerializeToString() )
+    lmdb_txn.put(str(keystr).encode(), str(datum.SerializeToString()).encode())
+    
 
     # write batch
     if(item_id + 1) % batch_size == 0:
