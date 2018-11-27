@@ -69,6 +69,6 @@ for x in range(500000):
 # write last batch
 if (item_id+1) % batch_size != 0:
     lmdb_txn.commit()
-    print 'last batch'
+    print (last batch)
     print (item_id + 1)
 
