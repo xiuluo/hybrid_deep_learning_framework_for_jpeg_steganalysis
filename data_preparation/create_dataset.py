@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #The program generate the lmdb dataset for the Caffe input
-#Implement in python-3.6
+#Implement in python-2.7
 
 import caffe
 import lmdb
@@ -21,7 +21,7 @@ image_names=image_names_string.split('\n')[0:-1]
 
 #basic setting
 lmdb_file = 'target_lmdbfile'
-batch_size = 2
+batch_size = 50000
 
 # create the lmdb file
 lmdb_env = lmdb.open(lmdb_file, map_size=int(1e13))
@@ -30,7 +30,7 @@ datum = caffe_pb2.Datum()
 
 item_id = -1
 image_id= 0
-for x in range(2):
+for x in range(500000):
     item_id += 1
     
     #prepare the data and label
@@ -58,8 +58,7 @@ for x in range(2):
     # save in datum
     datum = caffe.io.array_to_datum(data, label)
     keystr = '{:0>8d}'.format(item_id)
-    lmdb_txn.put(str(keystr).encode(), str(datum.SerializeToString()).encode())
-    
+    lmdb_txn.put( keystr, datum.SerializeToString() )
 
     # write batch
     if(item_id + 1) % batch_size == 0:
@@ -70,6 +69,5 @@ for x in range(2):
 # write last batch
 if (item_id+1) % batch_size != 0:
     lmdb_txn.commit()
-    print ("last batch")
+    print 'last batch'
     print (item_id + 1)
-
