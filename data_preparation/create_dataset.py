@@ -21,7 +21,7 @@ image_names=image_names_string.split('\n')[0:-1]
 
 #basic setting
 lmdb_file = 'target_lmdbfile'
-batch_size = 50000
+batch_size = 2
 
 # create the lmdb file
 lmdb_env = lmdb.open(lmdb_file, map_size=int(1e13))
@@ -30,7 +30,7 @@ datum = caffe_pb2.Datum()
 
 item_id = -1
 image_id= 0
-for x in range(500000):
+for x in range(2):
     item_id += 1
     
     #prepare the data and label
