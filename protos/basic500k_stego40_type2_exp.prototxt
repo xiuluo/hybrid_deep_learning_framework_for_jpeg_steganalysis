@@ -22,8 +22,8 @@ layer {
     phase: TEST
   }
   data_param {
-    source: "../datasets/basic50k_cover_stego40_test"
-    batch_size: 10
+    source: "../data_preparation/target_lmdbfile"
+    batch_size: 2
     backend: LMDB
   }
 }
