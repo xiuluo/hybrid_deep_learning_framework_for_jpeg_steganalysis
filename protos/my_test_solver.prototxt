@@ -1,4 +1,4 @@
-net: "./basic500k_stego40_exp.prototxt"
+net: "./my_test.prototxt"
 snapshot_prefix: "snapshot/basic500k_stego40_exp"
 
 
