@@ -1,4 +1,4 @@
-name: "basic500k_stego40_exp"
+name: "my_test"
 layer {
   name: "juniward04"
   type: "Data"
@@ -8,8 +8,8 @@ layer {
     phase: TRAIN
   }
   data_param {
-    source: "../datasets/basic50k_cover_stego40_train"
-    batch_size: 64
+    source: "../data_preparation/target_lmdbfile"
+    batch_size: 2
     backend: LMDB
   }
 }
