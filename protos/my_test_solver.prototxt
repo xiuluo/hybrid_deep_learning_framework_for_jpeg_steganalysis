@@ -2,21 +2,19 @@ net: "./my_test.prototxt"
 snapshot_prefix: "./"
 
 
-test_iter: 5
-test_interval: 10
+test_iter: 1
+test_interval: 100
 
-base_lr: 0.001
-lr_policy: "step"
-stepsize: 50
-gamma: 0.9
-display: 10
-max_iter: 20
+base_lr: 0.01
+lr_policy: "fixed"
+display: 1
+max_iter: 4
 
 # snapshot intermediate results
-snapshot: 10000
+snapshot: 0
 
 momentum: 0.9
-weight_decay: 0.0005
+weight_decay: 0.5
 solver_mode: GPU
 
 random_seed: 1490
