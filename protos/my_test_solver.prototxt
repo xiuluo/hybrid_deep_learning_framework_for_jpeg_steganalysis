@@ -1,5 +1,5 @@
 net: "./my_test.prototxt"
-snapshot_prefix: "snapshot/basic500k_stego40_exp"
+snapshot_prefix: "./"
 
 
 test_iter: 5000
